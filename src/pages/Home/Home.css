@@ -1,0 +1,5 @@
+.mark-pink {
+  background-color: rgba(243, 30, 120);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}

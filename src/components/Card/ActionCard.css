@@ -1,0 +1,9 @@
+.action-card {
+  overflow: hidden;
+}
+
+.card-img-top {
+  width: 100%;
+  min-height: 30vh;
+  object-fit: cover;
+}

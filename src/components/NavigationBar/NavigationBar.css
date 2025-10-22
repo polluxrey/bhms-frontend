@@ -1,0 +1,19 @@
+nav {
+  background-color: rgba(243, 30, 120);
+}
+
+.btn-login {
+  background-color: white;
+  color: rgba(243, 30, 120);
+  border: none;
+}
+
+.btn-login:hover {
+  background-color: #e6e6e6;
+  color: rgb(243, 30, 120);
+}
+
+.btn-login:active {
+  background-color: #cccccc !important;
+  color: rgb(243, 30, 120) !important;
+}

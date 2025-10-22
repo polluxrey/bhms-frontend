@@ -1,0 +1,13 @@
+.carousel .carousel-control-prev,
+.carousel .carousel-control-next {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-inner {
+  padding: 1em;
+}
