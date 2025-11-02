@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
-import OTPInput from "./OTPInput";
-import { Alert, Button, Card, Form, Spinner } from "react-bootstrap";
+import OTPInput from "../../components/OTP/OTPInput";
+import { Alert, Button, Form, Spinner } from "react-bootstrap";
 import { verifyOTP } from "../../services/otpService";
 
 const VerificationForm = ({ boarderId, email, onSuccess, onClose }) => {

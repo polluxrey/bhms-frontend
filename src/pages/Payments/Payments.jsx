@@ -5,7 +5,7 @@ import { useFetch } from "../../hooks/useFetch";
 import { fetchNameData } from "../../services/boarderService";
 import { fetchPaymentListData } from "../../services/paymentService";
 import { fetchOTP } from "../../services/otpService";
-import VerificationForm from "../../components/OTP/VerificationForm";
+import VerificationForm from "../OTP/VerificationForm";
 import DropdownSelect from "../../components/Dropdown/DropdownSelect";
 import DataTable from "../../components/Table/DataTable";
 import PaymentStatusBadge from "../../components/Badge/PaymentStatusBadge";
@@ -66,7 +66,7 @@ export default function BoarderPayments() {
   };
 
   return (
-    <Container>
+    <Container className="mt-2 mb-3">
       <Row className="py-3">
         <h1 className="fw-bold">
           <mark className="mark-pink text-white rounded-3">
@@ -153,7 +153,7 @@ export default function BoarderPayments() {
                     ? payments.results.map((p, idx) => {
                         return {
                           index: idx + 1,
-                          date: p.date,
+                          date: p.created_at_date_display,
                           amount: p.amount,
                           status: <PaymentStatusBadge status={p.status} />,
                         };

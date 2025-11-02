@@ -63,7 +63,7 @@ function RequestForm() {
   const errorMessage = submitError || nameError;
 
   return (
-    <Container>
+    <Container className="mt-2 mb-3">
       {showAlert && (errorMessage || submitSuccess) && (
         <Alert
           variant={errorMessage ? "danger" : "success"}

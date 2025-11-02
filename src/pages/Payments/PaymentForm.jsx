@@ -63,7 +63,7 @@ function PaymentForm() {
   const errorMessage = submitError || nameError || typeError || methodError;
 
   return (
-    <Container>
+    <Container className="mt-2 mb-3">
       {showAlert && (errorMessage || submitSuccess) && (
         <Alert
           variant={errorMessage ? "danger" : "success"}

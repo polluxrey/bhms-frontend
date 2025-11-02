@@ -1,6 +1,6 @@
 // Todo: Other config data
 
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { useCachedData } from "../hooks/useCachedData";
 import { fetchBrandingData } from "../services/configService";
 
@@ -30,4 +30,11 @@ export const ConfigDataProvider = ({ children }) => {
       {children}
     </ConfigDataContext.Provider>
   );
+};
+
+export const useConfigData = () => {
+  const context = useContext(ConfigDataContext);
+  if (!context)
+    throw new Error("useConfigData must be used within a ConfigDataProvider");
+  return context;
 };

@@ -51,7 +51,7 @@ export default function ServiceRequests() {
   ];
 
   return (
-    <Container>
+    <Container className="mt-2 mb-3">
       {(validationError || error) && (
         <Alert
           show={showAlert}
@@ -83,7 +83,7 @@ export default function ServiceRequests() {
                 </Form.Label>
                 <Col>
                   <Form.Control
-                    placeholder="Your 6-digit code"
+                    placeholder="Your 7-digit code"
                     value={refNumber}
                     onChange={(e) => setRefNumber(e.target.value)}
                   />

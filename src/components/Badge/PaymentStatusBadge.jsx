@@ -9,6 +9,7 @@ export default function PaymentStatusBadge({ status }) {
 
   switch (normalizedStatus) {
     case "PENDING":
+    case "PENDING REVIEW":
       variant = "warning";
       displayText = "PENDING REVIEW";
       break;
@@ -23,5 +24,9 @@ export default function PaymentStatusBadge({ status }) {
       break;
   }
 
-  return <Badge bg={variant}>{displayText}</Badge>;
+  return (
+    <Badge bg={variant} className="text-wrap">
+      {displayText}
+    </Badge>
+  );
 }

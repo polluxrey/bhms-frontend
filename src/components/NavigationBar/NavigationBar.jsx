@@ -6,25 +6,34 @@ import { Link } from "react-router-dom";
 export default function NavigationBar({
   appName = "Boarding House Management System",
   navLinks,
+  roleModules,
   ctaContent,
+  onBrandClick,
 }) {
   const collapseId = "responsive-navbar-nav";
 
   return (
-    <Navbar expand="lg" className="navbar-dark mb-2">
+    <Navbar expand="lg" className="navbar-dark">
       <Container>
-        <Navbar.Brand className="fw-bold" as={Link} to="/">
+        <Navbar.Brand
+          className="fw-bold"
+          onClick={onBrandClick}
+          style={{ cursor: "pointer" }}
+        >
           {appName}
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls={collapseId} />
 
         <Navbar.Collapse id={collapseId}>
-          {/* Main Navigation Links (Pushed to the left) */}
+          {/* Main navigation links */}
           <Nav className="me-auto">{navLinks}</Nav>
 
-          {/* CTA / Login Button (Pushed to the far right) */}
-          <Nav>{ctaContent}</Nav>
+          {/* Role-based modules (visible on small screens only) */}
+          <Nav className="mt-2 mt-lg-0 d-lg-none">{roleModules}</Nav>
+
+          {/* CTA buttons (e.g., login/logout, visible on small screens only) */}
+          <Nav className="mt-2 mt-lg-0 ms-lg-auto">{ctaContent}</Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
