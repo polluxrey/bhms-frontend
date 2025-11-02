@@ -177,7 +177,15 @@ export default function PaymentDetails() {
               </thead>
               <tbody>
                 <tr>
-                  <td>{paymentDetails.description}</td>
+                  <td>
+                    <span
+                      className={
+                        paymentDetails?.description ? "" : "text-muted"
+                      }
+                    >
+                      {paymentDetails?.description || "No description added."}
+                    </span>
+                  </td>
                 </tr>
               </tbody>
             </Table>
