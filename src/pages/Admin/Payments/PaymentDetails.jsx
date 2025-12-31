@@ -189,7 +189,7 @@ export default function PaymentDetails() {
                 </tr>
               </tbody>
             </Table>
-            <Table striped bordered className="mb-3">
+            <Table striped bordered responsive className="mb-3">
               <thead>
                 <tr>
                   <td className="fw-bold">Proof of Payment</td>

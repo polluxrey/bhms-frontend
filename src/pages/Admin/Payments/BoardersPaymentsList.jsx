@@ -156,10 +156,8 @@ export default function BoardersPaymentsList() {
                       onClick={() => handleSort("last_name")}
                       style={{ cursor: "pointer" }}
                     >
-                      <span className="d-inline-flex align-items-center w-100">
-                        <span className="flex-grow-1 text-center">
-                          Last Name
-                        </span>
+                      <span className="d-flex align-items-center w-100">
+                        <span className="mx-auto">Last Name</span>
                         {renderSortIcon("last_name")}
                       </span>
                     </th>

@@ -102,9 +102,9 @@ function AppHeader() {
               Payments
             </NavLink>
 
-            {/* <NavLink to="/admin/requests" className={getNavLinkClass}>
+            <NavLink to="/admin/requests" className={getNavLinkClass}>
               Requests
-            </NavLink> */}
+            </NavLink>
           </>
         );
       default:

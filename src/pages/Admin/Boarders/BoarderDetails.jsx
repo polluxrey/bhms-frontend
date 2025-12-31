@@ -21,6 +21,9 @@ export default function BoarderDetails() {
   const [boarder, setBoarder] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(
+    location.state?.message || ""
+  );
 
   if (!boarderState) {
     return (
@@ -90,6 +93,12 @@ export default function BoarderDetails() {
 
   return (
     <Container>
+      {successMessage && (
+        <Alert variant="success" className="mb-2 py-2">
+          {successMessage}
+        </Alert>
+      )}
+
       {error && (
         <Alert variant="danger" className="mb-2 py-2">
           {error}
@@ -118,8 +127,15 @@ export default function BoarderDetails() {
             <Container className="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3 p-0">
               <h2 className="mb-0">{boarder.full_name}</h2>
               {boarder.is_active && (
-                <Button variant="warning" disabled>
-                  <FaEdit className="me-1" /> Edit
+                <Button
+                  variant="warning"
+                  onClick={() =>
+                    navigate("/admin/boarders/edit", {
+                      state: { boarder },
+                    })
+                  }
+                >
+                  <FaEdit /> <span className="d-none d-md-inline">Edit</span>
                 </Button>
               )}
             </Container>
@@ -131,7 +147,7 @@ export default function BoarderDetails() {
                     style={{ maxWidth: "275px" }}
                   >
                     <img
-                      src={boarder["profile_photo_url"]}
+                      src={boarder.profile_photo_url}
                       className="object-fit-cover"
                     />
                   </div>

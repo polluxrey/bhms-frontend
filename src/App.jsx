@@ -22,6 +22,10 @@ import BoardersPaymentsList from "./pages/Admin/Payments/BoardersPaymentsList";
 import BoarderPaymentsList from "./pages/Admin/Payments/BoarderPaymentsList";
 import PaymentDetails from "./pages/Admin/Payments/PaymentDetails";
 import PublicRoute from "./components/ProtectedRoute/PublicRoute";
+import BoarderEdit from "./pages/Admin/Boarders/BoarderEdit/BoarderEdit";
+import BoarderForm from "./pages/Admin/Boarders/BoarderAdd/BoarderAdd";
+import RequestList from "./pages/Admin/Requests/RequestList";
+import RequestDetails from "./pages/Admin/Requests/RequestDetails";
 
 function App() {
   useAuthRefresh();
@@ -81,7 +85,9 @@ function App() {
                 <Route path="/admin" element={<AdminLayout />}>
                   <Route index element={<Navigate to="boarders" replace />} />
                   <Route path="boarders" element={<BoardersList />} />
+                  <Route path="boarders/add" element={<BoarderForm />} />
                   <Route path="boarders/view" element={<BoarderDetails />} />
+                  <Route path="boarders/edit" element={<BoarderEdit />} />
                   <Route path="payments" element={<BoardersPaymentsList />} />
                   <Route
                     path="payments/boarder/view-all"
@@ -91,7 +97,8 @@ function App() {
                     path="payments/boarder/view"
                     element={<PaymentDetails />}
                   />
-                  <Route path="requests" element={<AdminDashboard />} />
+                  <Route path="requests" element={<RequestList />} />
+                  <Route path="requests/view" element={<RequestDetails />} />
                 </Route>
               </Route>
 
