@@ -108,7 +108,7 @@ export default function BoarderDetails() {
       <Button
         variant="link"
         className="text-decoration-none text-muted p-0"
-        onClick={() => navigate(-1)}
+        onClick={() => navigate("/admin/boarders")}
       >
         <FaArrowLeft className="me-1" /> Back
       </Button>

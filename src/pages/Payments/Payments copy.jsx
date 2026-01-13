@@ -23,10 +23,10 @@ export default function BoarderPayments() {
   useDocumentTitle("View Payments");
 
   const [selectedBoarder, setSelectedBoarder] = useState("");
-  const [showModal, setShowModal] = useState(false);
-  const [otpVerified, setOtpVerified] = useState(false);
   const [otpData, setOtpData] = useState(null);
   const [otpRequesting, setOtpRequesting] = useState(false);
+  const [otpVerified, setOtpVerified] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [page, setPage] = useState(1);
 
@@ -48,32 +48,33 @@ export default function BoarderPayments() {
   } = useFetch(fetchPayments);
 
   useEffect(() => {
+    if (!selectedBoarder) return;
+
     setPage(1);
+    setOtpData(null);
     setOtpVerified(false);
     setShowModal(false);
-    setOtpData(null);
     setErrorMessage("");
-  }, [selectedBoarder]);
 
-  const handleRequestOTP = async (boarderId) => {
-    if (!boarderId) return;
-    setOtpRequesting(true);
-    setErrorMessage("");
-    try {
-      const response = await fetchOTP({ boarder_id: boarderId });
-
-      if (response.success && response.data.status === "otp_sent") {
-        setOtpData(response.data);
-        setShowModal(true);
-      } else {
-        setErrorMessage(response.message || "Failed to send OTP.");
+    const requestOTP = async () => {
+      setOtpRequesting(true);
+      try {
+        const response = await fetchOTP({ boarder_id: selectedBoarder });
+        if (response.success && response.data.status === "otp_sent") {
+          setOtpData(response.data);
+          setShowModal(true);
+        } else {
+          setErrorMessage(response.message || "Failed to send OTP.");
+        }
+      } catch {
+        setErrorMessage("Failed to send OTP. Please try again.");
+      } finally {
+        setOtpRequesting(false);
       }
-    } catch {
-      setErrorMessage("Failed to send OTP. Please try again.");
-    } finally {
-      setOtpRequesting(false);
-    }
-  };
+    };
+
+    requestOTP();
+  }, [selectedBoarder]);
 
   // Clear messages after 5s
   useEffect(() => {

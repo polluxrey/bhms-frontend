@@ -109,7 +109,6 @@ export default function BoarderForm() {
           label: "Birth Date",
           key: "date_of_birth",
           type: "date",
-          required: true,
           colSpan: 4,
         },
         {
